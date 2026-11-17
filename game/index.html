@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar City — Streets of the Sun</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.min.js"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<!-- in-game HUD: hidden until the player starts -->
+<div id="hud" class="hud-hidden">
+  <div id="top-left">
+    <div id="health-bar"><div id="health-fill"></div><span id="health-text">100 HP</span></div>
+    <div id="money">$500</div>
+    <div id="objective-box">
+      <div id="objective-title">Solmar City</div>
+      <div id="objective">Press T to start your first job for Dona Vera.</div>
+    </div>
+  </div>
+  <div id="wanted">
+    <div id="wanted-label">WANTED</div>
+    <div id="stars">☆☆☆☆☆</div>
+  </div>
+  <div id="toast"></div>
+  <div id="crosshair"></div>
+  <div id="minimap-wrap"><canvas id="minimap" width="168" height="168"></canvas></div>
+  <div id="speed-box"><span id="speed"></span> <span id="speed-label"></span></div>
+  <div id="hint"></div>
+</div>
+
+<!-- title screen -->
+<div id="start-screen" class="screen">
+  <div class="panel">
+    <h1>SOLMAR CITY</h1>
+    <p class="tagline">Streets of the Sun</p>
+    <p class="story">Leo Marín came back to Solmar with $500, a borrowed shirt and a debt
+    to pay. Dona Vera runs the Mar Azul diner — and every job in town worth
+    taking. Drive, steal, run from the cops, and work your way up, one job
+    at a time.</p>
+    <div class="controls">
+      <div><b>WASD</b> move / drive</div>
+      <div><b>Shift</b> sprint</div>
+      <div><b>Space</b> jump / handbrake</div>
+      <div><b>E</b> steal or leave a car</div>
+      <div><b>Click</b> shoot &nbsp;·&nbsp; <b>drag</b> camera</div>
+      <div><b>T</b> mission &nbsp;·&nbsp; <b>C</b> camera &nbsp;·&nbsp; <b>M</b> mute</div>
+    </div>
+    <div class="features">5 story missions · wanted level &amp; police chases · traffic,
+    pedestrians &amp; a living city · autosave</div>
+    <div class="buttons">
+      <button id="btn-new" type="button">New Game</button>
+      <button id="btn-continue" type="button">Continue</button>
+    </div>
+    <p class="foot">Best played with keyboard &amp; mouse. Your progress saves automatically.</p>
+  </div>
+</div>
+
+<!-- busted / wasted screen -->
+<div id="end-screen" class="screen hidden">
+  <div class="panel">
+    <h2 id="end-title">BUSTED</h2>
+    <p id="end-text"></p>
+    <div class="buttons">
+      <button id="btn-resume" type="button">Get back out there</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
